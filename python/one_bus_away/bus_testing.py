@@ -2,7 +2,7 @@ import requests
 import json
 import xml.etree.ElementTree as ET
 
-payload = {'key': '0dfd7ad9-2474-4d67-8508-9fa66333481d'}
+payload = {'key': 'PUT_API_KEY_HERE'}
 resp = requests.get('http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_6050.xml',
                     params = payload)
 # add conditional in case resp.status_code != 200
