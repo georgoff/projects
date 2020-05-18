@@ -59,7 +59,9 @@ def GetToken(authCode, redirectUri, clientId, clientSecret, refresh = False):
     
     r = requests.post(address, data=payload)
     
-    return r.json()
+    rJson = r.json()
+    
+    return rJson['access_token'], rJson['expires_in'], rJson['refresh_token'], rJson['scope']
 
 myTopSongs = GetTopSomething('tracks', token, limit = '35', timeRange = 'short_term')
 
