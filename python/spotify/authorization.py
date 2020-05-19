@@ -8,7 +8,7 @@ Created on Sun May 17 20:48:31 2020
 
 import requests
 
-def GetToken(authCode, redirectUri, clientId, clientSecret, refresh = False):
+def GetToken(authCode, clientId, clientSecret, refresh = False, redirectUri = ''):
     # authCode: The authorization code returned from the initial request to the
     #           /authorize endpoint OR the refresh token if refresh == True
     # grantType: Must contain 'authorization_code'
