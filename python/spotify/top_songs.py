@@ -7,8 +7,10 @@ Created on Sat May 16 22:41:00 2020
 """
 
 from api_calls import GetTopSomething
+from authorization import GetToken
+from user_secrets import clientId, clientSecret, refreshToken
 
-token = 'PUT_TOKEN_HERE'
+token, expiresIn, refreshToken, scope = GetToken(refreshToken, clientId, clientSecret, refresh = True)
 
 myTopSongs = GetTopSomething('tracks', token, limit = '35', timeRange = 'short_term')
 
