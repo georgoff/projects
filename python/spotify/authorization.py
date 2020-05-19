@@ -37,5 +37,10 @@ def GetToken(authCode, redirectUri, clientId, clientSecret, refresh = False):
     
     rJson = r.json()
     
-    return rJson['access_token'], rJson['expires_in'], rJson['refresh_token'], rJson['scope']
+    if 'refresh_token' in rJson:
+        returnedRefreshToken = rJson['refresh_token']
+    else:
+        returnedRefreshToken = authCode
+    
+    return rJson['access_token'], rJson['expires_in'], returnedRefreshToken, rJson['scope']
 
